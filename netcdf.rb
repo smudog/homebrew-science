@@ -70,4 +70,20 @@ class Netcdf < Formula
       system 'make install'
     end if build.include? 'enable-fortran'
   end
+    def patches
+    DATA
+  end
 end
+__END__
+diff --git a/ncgen3/genlib.h b/ncgen3/genlib.h
+index d34f85d..276fb6a 100644
+--- a/ncgen3/genlib.h
++++ b/ncgen3/genlib.h
+@@ -7,6 +7,7 @@
+  *********************************************************************/
+ #include <stdlib.h>
+ #include <limits.h>
++#include "config.h"
+ 
+ extern const char *progname;	/* for error messages */
+ extern const char *cdlname;	/* for error messages */
